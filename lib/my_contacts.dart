@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'widget/Grid_View.dart';
 import 'widget/social_media_icons.dart';
 
 class MyContacts extends StatelessWidget {
@@ -79,22 +80,7 @@ class MyContacts extends StatelessWidget {
               //   size: 50,
               // ),
               SizedBox(height: 10),
-              GridView.builder(
-                itemCount: SM.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  //crossAxisSpacing: 20.0,
-                  crossAxisCount: 3,
-                ),
-                itemBuilder: (context, index) {
-                  return SmIcon(
-                    Sm: SM.keys.toList()[index],
-                    Smlink: SM.values.toList()[index],
-                  );
-                },
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                padding: EdgeInsets.all(20),
-              ),
+              GridV(SM: SM),
             ],
           ),
         ),
