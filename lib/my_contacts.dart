@@ -18,7 +18,7 @@ class MyContacts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color.fromARGB(255, 9, 1, 45),
       body: Container(
         width: double.infinity,
         //color: Colors.red,

@@ -40,7 +40,7 @@ dependencies:
   flutter_native_splash: ^2.2.19
 
 flutter_native_splash:
-  color: "#03071e"
+  color: "#09012D"
   image: assets/fotor_M1.png
   android: true
   ios: true
