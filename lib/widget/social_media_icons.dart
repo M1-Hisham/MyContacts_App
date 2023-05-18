@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lern_app_test/widget/screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -17,16 +16,19 @@ class SmIcon extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(17),
       child: InkWell(
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => Screen(
-                    Smlink: Smlink,
-                  )),
+        onTap: () => showModalBottomSheet(
+          context: context,
+          builder: (context) => ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(Colors.black)),
+            onPressed: () => launchUrl(Uri.parse(Smlink),
+                mode: LaunchMode.externalApplication),
+            child: Text('Start $Sm'),
+          ),
         ),
         child: CircleAvatar(
           backgroundColor: Colors.transparent,
-          backgroundImage: AssetImage('assets/$Sm'),
+          backgroundImage: AssetImage('assets/$Sm.png'),
           radius: 40,
         ),
       ),

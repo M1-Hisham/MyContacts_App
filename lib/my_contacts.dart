@@ -7,13 +7,13 @@ import 'widget/social_media_icons.dart';
 class MyContacts extends StatelessWidget {
   MyContacts({super.key});
   Map<String, String> SM = {
-    'facebook.png': 'https://www.facebook.com/profile.php?id=100010237626840',
-    'instagram.png': 'https://www.instagram.com/mmohamedhhisham/',
-    'linkedin.png': 'https://www.linkedin.com/in/mohamed-hihsam-99832b1b5/',
-    'icons8-github-24.png': 'https://github.com/M1-Hisham',
-    'tiktok.png': 'https://www.tiktok.com/@mohamed_h_s1',
-    'whatsapp.png': 'https://wa.me/+201151771702',
-    'youtube.png': 'https://www.youtube.com/channel/UCBix7wc55ZcRgKnVgjhD6rw',
+    'facebook': 'https://www.facebook.com/profile.php?id=100010237626840',
+    'instagram': 'https://www.instagram.com/mmohamedhhisham/',
+    'linkedin': 'https://www.linkedin.com/in/mohamed-hihsam-99832b1b5/',
+    'github': 'https://github.com/M1-Hisham',
+    'tiktok': 'https://www.tiktok.com/@mohamed_h_s1',
+    'whatsapp': 'https://wa.me/+201151771702',
+    'youtube': 'https://www.youtube.com/channel/UCBix7wc55ZcRgKnVgjhD6rw',
   };
   @override
   Widget build(BuildContext context) {
