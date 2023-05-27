@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+
+import '../my_provider.dart';
 
 class SmIcon extends StatelessWidget {
   String Sm;
@@ -13,16 +15,23 @@ class SmIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(17),
-      child: InkWell(
-        child: CircleAvatar(
-          backgroundColor: Colors.transparent,
-          backgroundImage: AssetImage('assets/$Sm'),
-          radius: 40,
+    return Consumer<MyProvider>(
+      builder: (context, value, child) => Padding(
+        padding: const EdgeInsets.all(17),
+        child: InkWell(
+          child: CircleAvatar(
+            backgroundColor: Colors.transparent,
+            backgroundImage: AssetImage('assets/$Sm'),
+            radius: 40,
+          ),
+          onDoubleTap: () {
+            value.myicon = Sm;
+            value.myurl = Smlink;
+            value.notifyListeners();
+          },
+          onTap: () => launchUrl(Uri.parse(Smlink),
+              mode: LaunchMode.externalApplication),
         ),
-        onTap: () =>
-            launchUrl(Uri.parse(Smlink), mode: LaunchMode.externalApplication),
       ),
     );
   }

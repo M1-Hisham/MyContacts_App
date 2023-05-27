@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'my_provider.dart';
 import 'widget/social_media_icons.dart';
 
 class MyContacts extends StatelessWidget {
   MyContacts({super.key});
+
   Map<String, String> SM = {
     'facebook.png': 'https://www.facebook.com/profile.php?id=100010237626840',
     'instagram.png': 'https://www.instagram.com/mmohamedhhisham/',
@@ -14,9 +16,48 @@ class MyContacts extends StatelessWidget {
     'whatsapp.png': 'https://wa.me/+201151771702',
     'youtube.png': 'https://www.youtube.com/channel/UCBix7wc55ZcRgKnVgjhD6rw',
   };
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        title: Text('MY HOME'),
+        leading: Padding(
+          padding: const EdgeInsets.only(bottom: 3, left: 6),
+          child: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.home),
+            iconSize: 33,
+          ),
+        ),
+        actions: [
+          Consumer<MyProvider>(
+            builder: (context, value, child) => Padding(
+              padding: const EdgeInsets.only(bottom: 2, right: 16),
+              child: IconButton(
+                onPressed: () {
+                  value.myurl == null
+                      ? launchUrl(Uri.parse('tel:+201151771702'))
+                      : launchUrl(Uri.parse(value.myurl!),
+                          mode: LaunchMode.externalApplication);
+                },
+                icon: value.myicon == null
+                    ? Icon(
+                        Icons.phone,
+                        color: Colors.white,
+                        size: 30,
+                      )
+                    : CircleAvatar(
+                        backgroundColor: Colors.transparent,
+                        backgroundImage: AssetImage('assets/${value.myicon}'),
+                        radius: 40,
+                      ),
+              ),
+            ),
+          ),
+        ],
+      ),
       backgroundColor: Colors.black,
       body: Container(
         width: double.infinity,
@@ -27,9 +68,7 @@ class MyContacts extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                //color: Colors.red,
-                //width: 200,
-                height: 130,
+                height: 60,
               ),
               CircleAvatar(
                 backgroundColor: Colors.transparent,

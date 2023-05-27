@@ -1,4 +1,4 @@
-# lern_app_test
+# learn_app_test
 
 A new Flutter project.
 
